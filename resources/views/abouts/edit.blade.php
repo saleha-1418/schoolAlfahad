@@ -1,15 +1,16 @@
 @extends('layout')
 
 @section('content')
+<div align="right">
+	<a href="{{ route('abouts.index') }}" class="btn btn-default">Back</a>
+</div>
+<br />
 <style>
   .uper {
     margin-top: 40px;
   }
 </style>
-<div class="card uper">
-  <div class="card-header">
-    Edit about
-  </div>
+
   <div class="card-body">
     @if ($errors->any())
       <div class="alert alert-danger">
@@ -25,15 +26,19 @@
           <div class="form-group">
               @csrf
               @method('PATCH')
-              <label for="name">Name_Image:</label>
+              <label for="name">Enter Name</label>
               <input type="text" class="form-control" name="name_image" value="{{$abouts->name}}"/>
-          </div>
-          <div class="form-group">
-              <label for="price">Image:</label>
-              <input type="text" class="form-control" name="image" value="{{$abouts->email}}"/>
-          </div>
+              <div class="form-group">
+              </br>
+              </br>
+              </br>
+		<label class="col-md-4 text-right">Select Profile Image</label>
+		<div class="col-md-8">
+			<input type="file" name="image" />
+			<img src="{{ URL::to('/') }}/images/{{ $abouts->image }}" class="img-thumbnail" width="100" />
+		</div>
           
-          <button type="submit" class="btn btn-primary">Update about</button>
+          <button type="submit" class="btn btn-primary">Update</button>
       </form>
   </div>
 </div>
