@@ -37,7 +37,8 @@ class AboutController extends Controller{
     {
         $request->validate([
             'name_image'    =>  'required',
-            'image'         =>  'required|image|max:2048'
+            'image'         =>  'required|image|max:2048',
+            'sort'          =>  'required',
         ]);
 
         $image = $request->file('image');
@@ -47,6 +48,7 @@ class AboutController extends Controller{
         $form_abouts = array(
             'name_image'       =>   $request->name_image,
             'image'            =>   $new_name
+
         );
 
         About::create($form_abouts);
@@ -90,6 +92,8 @@ class AboutController extends Controller{
             $validatedData = $request->validate([
                 'name_image' => 'required',
                 'image' => 'required',
+                'sort'  =>  'required',
+
                
             ]);
             About::whereId($id)->update($validatedData);

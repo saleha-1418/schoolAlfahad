@@ -18,14 +18,17 @@
 
 <table class="table table-bordered table-striped">
 	<tr>
+	    <th width="5%"> sort </th>
 		<th width="10%">Image</th>
 		<th width="35%"> Name Image </th>
 		<th width="30%">Action</th>
 	</tr>
 	@foreach($abouts as $about)
 		<tr>
+	    	<td>{{ $about->sort }}</td>
 			<td><img src="{{ URL::to('/') }}/images/{{ $about->image }}" class="img-thumbnail" width="75" /></td>
 			<td>{{ $about->name_image }}</td>
+
 			<td>
 				
 				<form action="{{ route('abouts.destroy', $about->id) }}" method="post">

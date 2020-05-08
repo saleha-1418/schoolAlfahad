@@ -26,8 +26,15 @@
           <div class="form-group">
               @csrf
               @method('PATCH')
+
               <label for="name">Enter Name</label>
               <input type="text" class="form-control" name="name_image" value="{{$abouts->name}}"/>
+              <div class="form-group">
+              </br>
+              </br>
+              </br>
+         <label for="name">sort</label>
+              <input type="int" class="form-control" name="sort" value="{{$abouts->sort}}"/>
               <div class="form-group">
               </br>
               </br>
@@ -37,7 +44,7 @@
 			<input type="file" name="image" />
 			<img src="{{ URL::to('/') }}/images/{{ $abouts->image }}" class="img-thumbnail" width="100" />
 		</div>
-          
+                 
           <button type="submit" class="btn btn-primary">Update</button>
       </form>
   </div>

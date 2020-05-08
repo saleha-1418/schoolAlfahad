@@ -17,6 +17,7 @@ class CreateAboutsTable extends Migration
             $table->bigIncrements('id');
             $table->string('name_image');
             $table->string('image');
+            $table->integer('sort');
             $table->timestamps();
         });
     }
